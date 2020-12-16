@@ -1,12 +1,14 @@
-﻿// mobilfon_test.cpp: определяет точку входа для приложения.
-//
+#include <iostream>
+#include <string>
 
-#include "mobilfon_test.h"
+#include "calculator.hpp"
 
-using namespace std;
 
 int main()
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+    float result;
+    auto code = mobilfone::Calculator::do_math("14.5 * 23.3", result); // 337.85
+    if (code == mobilfone::CALC_PARSE_STATUS::PARSE_OK) std::cout << "result == " << result;
+
+    return 0;
 }
